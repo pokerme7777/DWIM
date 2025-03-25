@@ -9,10 +9,10 @@
     <a href="https://github.com/pokerme7777/DWIM/issues">
         <img src="https://img.shields.io/github/issues/pokerme7777/DWIM?style=flat-square">
     </a>
-    <a href="https://github.com/ControlNet/NAVER/network/members">
+    <a href="https://github.com/pokerme7777/DWIM/network/members">
         <img src="https://img.shields.io/github/forks/pokerme7777/DWIM?style=flat-square">
     </a>
-    <a href="https://github.com/ControlNet/NAVER/stargazers">
+    <a href="https://github.com/pokerme7777/DWIM/stargazers">
         <img src="https://img.shields.io/github/stars/pokerme7777/DWIM?style=flat-square">
     </a>
 <!--     <a href="https://arxiv.org/abs/2502.00372">
