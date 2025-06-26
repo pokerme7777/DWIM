@@ -1,4 +1,13 @@
-# DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning
+
+<h1 align="center">
+  <strong>DWIM:</strong> Towards <em>Tool-aware Visual Reasoning</em><br>
+  via <em>Discrepancy-aware Workflow Generation</em><br>
+  &amp; <em>Instruct-Masking Tuning</em>
+</h1>
+
+<h1 align="center" style="color: #e63946; font-family: Arial, sans-serif;">
+  🎉 Accepted by <span style="color:#1d3557;">ICCV 2025</span> 🎉
+</h1>
 
 <div align="center">
     <img src="assets/Method.svg">
@@ -22,7 +31,7 @@
 
 **This repo is the official implementation for the paper [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](https://arxiv.org/abs/xxxxxx).**
 
-The code will be available soon.
+The code will be in July 2025.
 
 ## Abstract
 
@@ -31,5 +40,10 @@ Visual reasoning (VR), which is crucial in many fields for enabling human-like v
 ## References
 If you find this work useful for your research, please consider citing it.
 ```bibtex
-pending
+@article{ke2025dwim,
+  title={DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation \& Instruct-Masking Tuning},
+  author={Ke, Fucai and Leng, Xingjian and Cai, Zhixi and Khan, Zaid and Wang, Weiqing and Haghighi, Pari Delir and Rezatofighi, Hamid and Chandraker, Manmohan and others},
+  journal={arXiv preprint arXiv:2503.19263},
+  year={2025}
+}
 ```
