@@ -29,7 +29,7 @@
     </a> -->
 </div>
 
-**This repo is the official implementation for the paper [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](https://arxiv.org/abs/xxxxxx).**
+**This repo is the official implementation for the paper [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](https://arxiv.org/pdf/2503.19263).**
 
 The code will be in July 2025.
 
