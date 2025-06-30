@@ -5,12 +5,12 @@
   &amp; <em>Instruct-Masking Tuning</em>
 </h1>
 
-<h1 align="center" style="color: #e63946; font-family: Arial, sans-serif;">
-  🎉 Accepted by <span style="color:#1d3557;">ICCV 2025</span> 🎉
+<h1 align="center">
+  🎉 Accepted by ICCV 2025 🎉
 </h1>
 
 <div align="center">
-    <img src="assets/Method.svg">
+    <img src="assets/Method.svg" width="70%">
     <p></p>
 </div>
 
@@ -32,6 +32,10 @@
 **This repo is the official implementation for the paper [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](https://arxiv.org/abs/xxxxxx).**
 
 The code will be in July 2025.
+
+## 🎥 4 mins quick intro about DWIM  
+[![DWIM Video](https://img.youtube.com/vi/TJhJTfpAG7g/0.jpg)](https://www.youtube.com/watch?v=TJhJTfpAG7g)
+
 
 ## Abstract
 
