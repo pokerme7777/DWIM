@@ -31,7 +31,7 @@
 
 **This repo is the official implementation for the paper [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](https://arxiv.org/pdf/2503.19263).**
 
-The code will be in July 2025.
+Due to company policy, we can only provide sample prompts for discrepancy-aware workflow generation and code for instruct-masking. The full codebase cannot be released at this stage
 
 ## 🎥 4 mins quick intro about DWIM  
 [![DWIM Video](https://img.youtube.com/vi/TJhJTfpAG7g/0.jpg)](https://www.youtube.com/watch?v=TJhJTfpAG7g)
