@@ -1,0 +1,207 @@
+class ImagePatch:
+    pass
+
+    def __init__(
+        self, image, left=None, lower=None, right=None, upper=None 
+    ):
+        """Initializes an ImagePatch object by cropping the image at the given
+        coordinates and stores the coordinates as attributes. If no coordinates are
+        provided, the image is left unmodified, and the coordinates are set to the
+        dimensions of the image.
+        Parameters
+        -------
+        image : array_like
+            An array-like of the original image.
+        left, lower, right, upper : int
+            An int describing the position of the (left/lower/right/upper) border of the
+             crop's bounding box in the original image.
+
+        self.image = image
+        # Rectangles are represented as 4-tuples, (x1, y1, x2, y2),
+        # with the upper left corner given first. The coordinate
+        # system is assumed to have its origin in the upper left corner, so
+        # upper must be less than lower and left must be less than right.
+
+        self.left = left if left is not None else 0
+        self.lower = lower if lower is not None else image.height
+        self.right = right if right is not None else image.width
+        self.upper = upper if upper is not None else 0
+        self.cropped_image = image.crop((self.left, self.upper, self.right, self.lower))
+        self.horizontal_center = (self.left + self.right) / 2
+        self.vertical_center = (self.upper + self.lower) / 2
+
+    def from_bounding_box(cls, image, bounding_box) -> "ImagePatch":
+        """Initializes an ImagePatch object by cropping the image at the given
+        coordinates and stores the coordinates as attributes.
+        Parameters
+        -------
+        image : array_like
+            An array-like of the original image.
+        bounding_box : dict
+            A dictionary like {"box": [left, lower, right, upper]}.
+        """
+
+    @property
+    def area(self) -> float:
+        """
+        Returns the area of the bounding box.
+        """
+        pass
+
+    def find(self, object_name: str) -> list[ImagePatch]:
+        """Returns a list of ImagePatch objects matching object_name contained in the
+        crop if any are found.
+        Otherwise, returns an empty list.
+        Parameters
+        ----------
+        object_name : str
+            the name of the object to be found
+
+        Returns
+        -------
+        List[ImagePatch]
+            a list of ImagePatch objects matching object_name contained in the crop
+        """
+
+    def exists(self, object_name):
+        """Returns True if the object specified by object_name is found in the image,
+        and False otherwise.
+        Parameters
+        -------
+        object_name : str
+            A string describing the name of the object to be found in the image.
+        pass
+
+    def verify_property(self, object_name, visual_property):
+        """Returns True if the object possesses the visual property, and False otherwise.
+        Differs from 'exists' in that it presupposes the existence of the object s
+        pecified by object_name, instead checking whether the object possesses
+        the property.
+        Parameters
+        -------
+        object_name : str
+            A string describing the name of the object to be found in the image.
+        visual_property : str
+            String describing the simple visual property (e.g., color, shape, material)
+            to be checked.
+        pass
+
+    def best_description_from_options(self, object_name, property_list)->str:
+        """
+        Returns best description option from the list about the object.
+        Parameters
+        -------
+        object_name : str
+            A string describing the name of the object to be found in the image.
+        property_list : list
+            A list of string describing the simple visual property (e.g., color, shape, material)
+            to be checked.
+
+
+    def simple_query(self, question: str) -> str:
+        """Returns the answer to a basic question asked about the image.
+        If no question is provided, returns the answer to "What is this?".
+        The questions are about basic perception, and are not meant to be used for
+        complex reasoning or external knowledge.
+        Parameters
+        -------
+        question : str
+            A string describing the question to be asked.
+        """
+        pass
+
+    def crop_left_of_bbox(self, left, upper, right, lower) -> ImagePatch:
+        """Returns an ImagePatch object representing the area to the left of the given
+        bounding box coordinates.
+
+        Parameters
+        ----------
+        left, upper, right, lower : int
+            The coordinates of the bounding box.
+
+        Returns
+        -------
+        ImagePatch
+            An ImagePatch object representing the cropped area.
+        """
+        pass
+
+    def crop_right_of_bbox(self, left, upper, right, lower) -> ImagePatch:
+        """Returns an ImagePatch object representing the area to the right of the given
+        bounding box coordinates.
+
+        Parameters
+        ----------
+        left, upper, right, lower : int
+            The coordinates of the bounding box.
+
+        Returns
+        -------
+        ImagePatch
+            An ImagePatch object representing the cropped area.
+        """
+        pass
+
+    def crop_below_bbox(self, left, upper, right, lower) -> ImagePatch:
+        """Returns an ImagePatch object representing the area below the given
+        bounding box coordinates.
+
+        Parameters
+        ----------
+        left, upper, right, lower : int
+            The coordinates of the bounding box.
+
+        Returns
+        -------
+        ImagePatch
+            An ImagePatch object representing the cropped area.
+        """
+        pass
+
+    def crop_above_bbox(self, left, upper, right, lower) -> ImagePatch:
+        """Returns an ImagePatch object representing the area above the given
+        bounding box coordinates.
+
+        Parameters
+        ----------
+        left, upper, right, lower : int
+            The coordinates of the bounding box.
+
+        Returns
+        -------
+        ImagePatch
+            An ImagePatch object representing the cropped area.
+        """
+
+def bool_to_yesno(bool_answer: bool) -> str:
+    return "yes" if bool_answer else "no"
+
+Your job is to write code to solve questions about images. You have access to the ImagePatch class above.
+You will be able to interact with a Jupyter notebook. You have to carefully format your responses according to the following rules.
+
+1. When you want to write code, you must use triple backticks inside a `<code>` tag. 
+2. When you want to return text you must use the `<thought>` tag. Example: `<thought>I think this is the answer.</thought>`
+3. When you are done, you must use the `<done>` tag with no content inside. Example: `<done></done>`
+4. The response from the notebook will be enclosed inside a `<result>` tag. Example: `<result>2</result>`
+5. The image will be loaded for you in a variable called `image`, the image detial captioning will be provided.
+6. If you can directly answer the question using a single word or phrase, Your final answer should be stored in a variable called `final_answer`.
+7. If you need more information, you can write code to get more information from image.
+8. In each step, you can only use a _single_ action.
+9. Take care to indent multi-line code carefully, and think step by step to solve the problem incrementally.
+10. Answer the question using a single word or phrase and store the answer in `final_answer`, then exit the task with a `<done>` tag.
+11. You must provide a solution, and please do not refuse to answer even if you are not completely sure.
+12. If `final_answer` is `True` or `False`, please use `bool_to_yesno` to convert it to 'yes' or 'no'.
+13. Your `final_answer` should match the reference answer in `<Refer_answer></Refer_answer>`. You need to use the reference answer to guide yourself in the correct way.
+14. However, you cannot mention reference answer when returning text in `<thought></thought>`, nor can you directly store the reference answer as your final answer because you are in the training phase.
+15. If a conflict is detected between the reference answer and the environment feedback, please generate a Rethink statement to describe the discrepancy, followed by an alternative action proposal.
+16. When the final_answer can match the reference answer, it means you have arrived at the correct answer.
+
+Below, I will provide you with examples.
+
+INSERT_IN_CONTEXT_EXAMPLES_HERE
+
+From here, the task begins. We will provide the query and image caption to you, and you can start providing your solution and answer.
+<query>INSERT_QUERY_HERE</query>
+<Refer_answer>INSERT_REFER_ANSWER_HERE</Refer_answer>
+<Image_Caption>INSERT_CAPTION_HERE</Image_Caption>
+Step 1:

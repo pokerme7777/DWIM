@@ -24,18 +24,24 @@
     <a href="https://github.com/pokerme7777/DWIM/stargazers">
         <img src="https://img.shields.io/github/stars/pokerme7777/DWIM?style=flat-square">
     </a>
-<!--     <a href="https://arxiv.org/abs/2502.00372">
-        <img src="https://img.shields.io/badge/xxxx.svg?style=flat-square">
-    </a> -->
+    <a href="https://arxiv.org/abs/2503.19263">
+        <img src="https://img.shields.io/badge/arXiv-2503.19263-b31b1b.svg?style=flat-square" alt="arXiv Badge"/>
+    </a>
 </div>
 
 **This repo is the official implementation for the paper [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](https://arxiv.org/pdf/2503.19263).**
 
-Due to company policy, we can only provide sample prompts for discrepancy-aware workflow generation and code for instruct-masking. The full codebase cannot be released at this stage
 
 ## 🎥 4 mins quick intro about DWIM  
 [![DWIM Video](https://img.youtube.com/vi/TJhJTfpAG7g/0.jpg)](https://www.youtube.com/watch?v=TJhJTfpAG7g)
 
+## 📢 Release Updates
+
+- [2025/07/18] 🔥 The **DWIM** instruction code is now available under the [`scripts`](./scripts) directory.
+- [2025/06/25] 🎉 Our **DWIM** paper has been accepted at **ICCV 2025**.
+
+Due to company policy, we are only able to release the instruction code — including sample prompts and data — for discrepancy-aware workflow generation and the implementation of instruct-masking.
+The full codebase cannot be open-sourced at this stage.
 
 ## Abstract
 

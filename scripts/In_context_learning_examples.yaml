@@ -1,0 +1,59 @@
+
+default:
+  -
+    case_type: no_tool_error
+    text: |
+      <query>What is this man doing, standing or running?</query>
+      <Refer_answer>standing</Refer_answer>
+      <Image_Caption>The image shows a man standing on the side of a road. He appears to be wearing a beanie, a dark jacket, and jeans. He is looking directly at the camera with a neutral expression. The man is also wearing a backpack, suggesting he might be traveling or on a journey. The setting seems to be a rural or less urbanized area, with trees and a clear sky in the background. The road is relatively empty, and there are no visible vehicles or other people in the immediate vicinity. The overall atmosphere of the image is calm and quiet.</Image_Caption>
+      Step 1:<thought>Use the `find` function to find the man, and then use the `best_description_from_options` function to double check whether the man is standing or running. Finally, store the answer into variable `final_answer`</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+      man_patch = patch.find("man")[0]
+      ```
+      </code>
+      <result> One man detected. \n </result>
+      Step 3:<code>
+      ```python
+      # check this man is standing or running
+      checking_list = ['standing', 'running']
+      final_answer = man_patch.best_description_from_options("man", checking_list)
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result> Best description from options about man: standing.\n final_answer: standing</result>
+      Step 4:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 5:<done></done>
+
+  -
+    case_type: with_tool_error
+    text: |
+      <query>What is this woman doing, standing or running?</query>
+      <Refer_answer>standing</Refer_answer>
+      <Image_Caption>The image shows a woman standing on the side of a road. She is wearing a beanie, a red jacket, and jeans. She looks directly at the camera with a neutral expression. The woman is also carrying a backpack, suggesting she might be traveling or on a journey. The setting appears to be a rural or less urbanized area, with trees and a clear sky in the background. The road is relatively empty, with no visible vehicles or other people nearby. The overall atmosphere is calm and quiet.</Image_Caption>
+      Step 1:<thought>Use the `find` function to find the woman, and then use the `best_description_from_options` function to double check whether the woman is standing or running. Finally, store the answer into variable `final_answer`</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+      woman_patch = patch.find("woman")[0]
+      ```
+      </code>
+      <result> no woman detected. \n </result>
+      Step 3:<thought>Rethink: There should be a woman in the image, but the detection result shows no woman. Need to use other method.\n Directly use the `best_description_from_options` function to the entire image to determine whether the woman is standing or running. store the answer into variable `final_answer`</thought>
+      <result></result>
+      Step 4:<code>
+      ```python
+      # check this woman is standing or running using entire image
+      checking_list = ['standing', 'running']
+      final_answer = patch.best_description_from_options("woman", checking_list)
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result> Best description from options about woman: standing.\n final_answer: standing</result>
+      Step 5:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 6:<done></done>
