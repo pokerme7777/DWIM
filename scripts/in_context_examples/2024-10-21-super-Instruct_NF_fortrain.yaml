@@ -1,0 +1,318 @@
+# These are the same as in_context_examples/2023-10-20.yaml, except
+# converted to the new format. I converted these manually by hand with some
+# help from Copilot. There may be mistakes, and I did not fit in all the logic
+# I wanted to.
+default:
+  -
+    dataset: gqa
+    question_id: null
+    text: |
+      <query>Where are these cats, at home or in park?</query>
+      <Refer_answer>home</Refer_answer>
+      <Image_Caption>The image shows a group of cats in a room that appears to be a living space. There are several cats of different colors and patterns, including black and white, tabby, and calico. They are scattered across the floor, with some standing and others sitting or lying down. The room has a modern aesthetic with a light-colored wooden floor, a rug, and a white dining table with chairs. The cats seem to be relaxed and comfortable in their environment.</Image_Caption>
+      Step 1:<thought>Use `simple_query` to get answer and store answer into variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      final_answer = patch.simple_query("Where are these cats, at home or in park?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'Where are these cats, at home or in park?': home.\n final_answer: home</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  -
+    dataset: gqa
+    question_id: null
+    text: |
+      <query>Are there any two fruits with the same color?</query>
+      <Refer_answer>yes</Refer_answer>
+      <Image_Caption>The image shows a collection of four fruits arranged on a textured surface. From left to right, there is a red apple with green spots, a yellow banana, a yellow lemon, and an orange. The apple has a mix of red and green hues, indicating it might be a variety like a Granny Smith or a similar type. The banana is a bright yellow, which is typical for ripe bananas. The lemon is also yellow, which is the color of ripe lemons. The orange is a vibrant orange color, which is characteristic of oranges when they are ripe. The background has a pattern that resembles cracks or lines, possibly from a concrete or stone surface.</Image_Caption>
+      Step 1:<thought>Use `simple_query` to get answer  and store answer into variable `final_answer`</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      final_answer = patch.simple_query("Are there any two fruits with the same color?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'Are there any two fruits with the same color?': yes.\n final_answer: yes</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  -
+    dataset: gqa
+    question_id: null
+    qt: Choose
+    text: |
+      <query>What is this man doing, standing or running?</query>
+      <Refer_answer>standing</Refer_answer>
+      <Image_Caption>The image shows a man standing on the side of a road. He appears to be wearing a beanie, a dark jacket, and jeans. He is looking directly at the camera with a neutral expression. The man is also wearing a backpack, suggesting he might be traveling or on a journey. The setting seems to be a rural or less urbanized area, with trees and a clear sky in the background. The road is relatively empty, and there are no visible vehicles or other people in the immediate vicinity. The overall atmosphere of the image is calm and quiet.</Image_Caption>
+      Step 1:<thought>Use the `find` function to find the man, and then use the `best_description_from_options` function to double check whether the man is standing or running. Finally, store the answer into variable `final_answer`</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+      man_patch = patch.find("man")[0]
+      checking_list = ['standing', 'running']
+      final_answer = man_patch.best_description_from_options("man", checking_list)
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Best description from options about man: standing.\n final_answer: standing</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+
+  - 
+    dataset: gqa
+    question_id: null
+    text: |
+      <query>Is the teddy bear in the top part or in the bottom of the picture?</query>
+      <Refer_answer>bottom</Refer_answer>
+      <Image_Caption>The teddy bear is in the bottom part of the picture.</Image_Caption>
+      Step 1:<thought>Use the `find` function to find the teddy bear.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+      teddy_bear_patches = patch.find("teddy bear")
+      ```
+      </code>
+      <result>Only one teddy bear has been found.</result>
+      Step 3:<thought>Compare the teddy bear's image patch vertical center with the image's vertical center, then store the answer into variable `final_answer`</thought>
+      <result></result>
+      Step 4:<code>
+      ```python
+      # get the teddy bear image patch
+      teddy_bear_patch = teddy_bear_patches[0]
+      if teddy_bear_patch.vertical_center < patch.vertical_center:
+          final_answer = "bottom"
+      else:
+          final_answer = "top"
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>final_answer: bottom</result>
+      Step 5:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 6:<done></done>
+  - 
+    dataset: gqa
+    question_id: null
+    question_type_: diffAnimalsC
+    text: |
+      <query>Are the animals of different types?</query>
+      <Refer_answer>no</Refer_answer>
+      <Image_Caption>The image features two birds standing in a dirt area. One bird is a large, long-necked bird, possibly an ostrich, while the other bird is a smaller bird, possibly a parrot. The two birds are standing close to each other, creating an interesting contrast in size and appearance. The scene appears to be set in a natural environment, with the birds coexisting in the same space.</Image_Caption>
+      Step 1:<thought> Use `simple_query` to get answer  and store answer into variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      final_answer = patch.simple_query("Are the animals of different types?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'Are the animals of different types?': no.\n final_answer: no</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  - 
+    dataset: gqa
+    question_id: null
+    question_type_: categoryRelO
+    text: |
+      <query>What is the device that the boy to the left of the girl is using?</query>
+      <Refer_answer>laptop</Refer_answer>
+      <Image_Caption>In the image, a boy and a girl are sitting on a couch, with the boy using a laptop. The girl is wearing glasses and appears to be looking at the laptop screen. The boy is positioned to the left of the girl, and they are both seated comfortably on the couch. The scene suggests a casual, relaxed atmosphere where the two individuals are engaged in a shared activity or conversation.</Image_Caption>
+      Step 1:<thought>Use `find` to find out all girls</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      # find girl
+      girl_patches = patch.find("girl")
+      ```
+      </code>
+      <result>Only one girl has been found.</result>
+      Step 3:<thought>Since there is only one girl in the image, use `crop_left_of_bbox` to extract the patch to the left of the girl, then use `find` to find all the boys in the left patch.</thought>
+      <result></result>
+      Step 4:<code>
+      ```python
+      # girl patch
+      girl_patch = girl_patches[0]
+
+      # the left patch of the girl
+      patch_left_of_girl = patch.crop_left_of_bbox(girl_patch.left, girl_patch.upper, girl_patch.right, girl_patch.lower)
+
+      # find boy on the left patch
+      boy_patches = patch_left_of_girl.find("boy")
+      ```
+      </code>
+      <result>Only one boy has been found.</result>
+      Step 5:<thought>Since there is only one boy in the image, use `simple_query` to answer 'What is the device that the boy is using?' on the boy's image patch and store the answer in the variable `final_answer`.</thought>
+      <result></result>
+      Step 6:<code>
+      ```python
+      # boy's image patch
+      boy_patch = boy_patches[0]
+
+      final_answer = boy_patch.simple_query("What is the device that the boy is using?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'What is the device that the boy is using?': laptop.\n final_answer: laptop</result>
+      Step 7:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 8:<done></done>
+  - 
+    dataset: gqa
+    question_id: null
+    question_type_: categoryRelO
+    text: |
+      <query>What is the device that the boy to the left of the girl is using?</query>
+      <Refer_answer>laptop</Refer_answer>
+      <Image_Caption>In the image, a boy and a girl are sitting on a couch, with the boy using a laptop. The girl is wearing glasses and appears to be looking at the laptop screen. The boy is positioned to the left of the girl, and they are both seated comfortably on the couch. The scene suggests a casual, relaxed atmosphere where the two individuals are engaged in a shared activity or conversation.</Image_Caption>
+      Step 1:<thought>Use `simple_query` to get answer  and store answer into variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      final_answer = patch.simple_query("What is the device that the boy to the left of the girl is using?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'What is the device that the boy to the left of the girl is using?': laptop.\n final_answer: laptop</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  - 
+    dataset: gqa
+    question_id: null
+    text: |
+      <query>What kind of clothing is white, the dress or the shirt?</query>
+      <Refer_answer>dress</Refer_answer>
+      <Image_Caption>In the image, there is a woman wearing a white dress, sitting at a table with a man. The woman is holding a cigarette, and there is a laptop on the table. The man is wearing a hat and appears to be smoking a pipe. The scene is set in a restaurant, and there is a chair positioned near the table. The woman's white dress and the man's hat and pipe create a classic and elegant atmosphere in the painting. </Image_Caption>
+      Step 1:<thought>Use `simple_query` to get answer  and store answer into variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      final_answer = patch.simple_query("What kind of clothing is white, the dress or the shirt?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'What kind of clothing is white, the dress or the shirt?': dress.\n final_answer: dress</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+      
+  - 
+    dataset: gqa
+    question_id: null
+    qt: twoCommon
+    text: |
+      <query>What is common to the dress and the shirt?</query>
+      <Refer_answer>color</Refer_answer>
+      <Image_Caption>In the image, a man and a woman are standing together, both wearing white clothing. The woman is wearing a white dress, while the man is wearing a white shirt. They are both holding a knife, likely preparing to cut a cake. The scene appears to be a celebration or a special occasion, as the couple is posing for a picture.</Image_Caption>
+      Step 1:<thought>Use `find` to find the shirt and dress. Then, use `verify_property` to check the color. If both are white, store the answer in the variable `final_answer`; otherwise, Use `simple_query` to get answer  to get the `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      # find the dress and shirt
+      dress_patch = patch.find("dress")[0]
+      shirt_patch = patch.find("shirt")[0]
+
+      # check the color
+      both_white = (dress_patch.verify_property("dress", "white") and shirt_patch.verify_property("shirt", "white"))
+
+      # if both white, store color
+      if both_white:
+        final_answer = 'color'
+      # if no, using simple_query to get answer.
+      else:
+        final_answer = patch.simple_query("What is common to the dress and the shirt?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Only one dress has been found.\n Only one shirt has been found.\n Answer of 'Is the dress white?': yes.\n Answer of 'Is the shirt white?': yes.\n final_answer: color</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  - 
+    dataset: gqa
+    question_id: null
+    qt: directOf
+    text: |
+      <query>What size is the animal that is to the right of the umbrella?</query>
+      <Refer_answer>small</Refer_answer>
+      <Image_Caption>In the image, there is a large, colorful umbrella with a small, brown and white dog standing next to it on the right. The dog appears to be a medium-sized breed, with a playful expression.</Image_Caption>
+      Step 1:<thought>Use `simple_query` to get answer  and store answer into variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      final_answer = patch.simple_query("What size is the animal that is to the right of the umbrella?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      </code>
+      <result>Answer of 'What size is the animal that is to the right of the umbrella?': small.\n final_answer: small</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  - 
+    dataset: gqa
+    question_id: null
+    qt: existOr
+    text: |
+      <query>Do you see a bin or a car there?</query>
+      <Refer_answer>yes</Refer_answer>
+      <Image_Caption>In the image, a bright red car is parked near the corner of the street, while a green recycling bin sits just a few feet away on the sidewalk.</Image_Caption>
+      Step 1:<thought>Use `exists` to check existence of the bin and the car. If either the bin or the car exists, the answer should be `yes`; otherwise, `no`. Store the answer in the variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      patch = ImagePatch(image)
+
+      # check existence of the bin and the car
+      car_exist = patch.exists("car")
+      bin_exist = patch.exists("bin")
+
+      # store answer
+      final_answer = bool_to_yesno(car_exist or bin_exist)
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Only one car has been found.\n Only one bin has been found.\n final_answer: yes</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>
+  -
+    question_id: ""
+    qt: state
+    text: |
+      <query>How is the water today?</query>
+      <Refer_answer>calm</Refer_answer>
+      <Image_Caption>The image features a group of elephants walking through a body of water, possibly a river or a lake. There are four elephants in total, with one on the left side, another in the middle, and two more on the right side of the water. The water appears to be calm and suitable for the elephants to navigate through. The scene captures the natural behavior of these majestic creatures as they move through their environment.</Image_Caption>
+      Step 1:<thought>Use `simple_query` to get answer and store answer into variable `final_answer`.</thought>
+      <result></result>
+      Step 2:<code>
+      ```python
+      final_answer = patch.simple_query("How is the water today?")
+      print(f"final_answer: {final_answer}")
+      ```
+      </code>
+      <result>Answer of 'How is the water today?': calm.\n final_answer: calm</result>
+      Step 3:<thought>Looks like the code executed successfully. I'm done.</thought>
+      <result></result>
+      Step 4:<done></done>

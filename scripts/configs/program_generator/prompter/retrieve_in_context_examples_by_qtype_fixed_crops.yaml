@@ -1,0 +1,6 @@
+# Identical to retrieve_in_context_examples_by_qtype.yaml, except that it uses the
+# the prompts in which we have fixed incorrect usages of the crop functionality.
+_target_: src.prompters.RetrieveInContextExamplesByQtypePrompter.build_from_filepaths
+template_path: prompts/2023-10-26-crops-fixed.py
+in_context_examples_path: in_context_examples/2023-10-20.yaml
+dataset_records: ${...dataset}

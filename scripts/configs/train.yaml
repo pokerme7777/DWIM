@@ -1,0 +1,68 @@
+model:
+  _target_: transformers.AutoModelForCausalLM.from_pretrained
+  pretrained_model_name_or_path: codellama/CodeLlama-7b-instruct-hf
+  torch_dtype: 
+    _target_: src.pale_giant_utils.torch_dtype_from_str
+    dtype_str: float16
+  low_cpu_mem_usage: true
+  device_map: "cuda:0"
+  use_safetensors: true
+train_records_path: 
+  path: cache/015_collect_gqa_api_examples/records.jsonl
+  sieve: 
+    _target_: src.filtering.FilterByExactMatch
+tokenizer:
+  _target_: src.pale_giant_utils.init_llama_tokenizer
+  pretrained_model_name_or_path: codellama/CodeLlama-7b-instruct-hf
+peft_config:
+  _target_: peft.LoraConfig
+  # PEFT will try to serialize the config
+  # and die because target_modules is a 
+  # ListConfig and _not_ serializable. So
+  # we convert it to a primitive type here.
+  _convert_: all
+  r: 16
+  lora_alpha: 32
+  bias: lora_only
+  task_type: CAUSAL_LM
+  target_modules:
+  - fc1
+  - fc2
+  - k_proj
+  - v_proj
+  - q_proj
+  - out_proj
+  lora_dropout: 0.05
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: true
+  lr: 0.0002
+lr_scheduler:
+  _target_: transformers.get_linear_schedule_with_warmup
+  # The number of warmup and training steps need to be computed
+  # dynamically from other parts of the config and the dataset size.
+  _partial_: true 
+training_loop:
+  num_epochs: 1
+  warmup_ratio: 0.1
+dataloader:
+  batch_size: 4
+wandb:
+  project: training_agent
+  dir: fill_the_path_to_wandb_dir
+  tags:
+  - testing
+  notes: Instruction tuning codellama with LORA on the programs we generated from
+    running codellama in a loop on GQA.
+  mode: offline # online, offline, disabled
+generate_kwargs:
+  min_length: -1
+  max_new_tokens: 180
+  temperature: 1.0
+  do_sample: true
+  top_p: 1.0
+  top_k: 0.0
+  length_penalty: 1.0
+output_folder: fill_the_path_to_output_folder
+prompter:
+  template_path: prompts/2023-09-29-instruction-tuning-template.py

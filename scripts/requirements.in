@@ -1,0 +1,19 @@
+peft @ git+https://github.com/huggingface/peft.git@6f41990da482dba96287da64a3c7d3c441e95e23
+pydantic==2.7.1
+omegaconf==2.3.0
+openai==1.28.1
+hydra-core==1.3.2
+magentic==0.23.0
+icecream 
+beartype 
+gradio==4.31.0
+pandas 
+tqdm 
+scipy 
+bitsandbytes==0.43.1
+jupyter==1.0.0
+jupyter-kernel-gateway==3.0.0 
+loguru==0.7.2
+wandb
+vllm
+-e external/llama-factory

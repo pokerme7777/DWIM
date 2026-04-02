@@ -1,0 +1,9 @@
+[submodule "panoptic-segment-anything"]
+	path = panoptic-segment-anything
+	url = git@github.com:segments-ai/panoptic-segment-anything.git
+[submodule "Grounded-Segment-Anything"]
+	path = Grounded-Segment-Anything
+	url = https://github.com/IDEA-Research/Grounded-Segment-Anything
+[submodule "src/groundingdino"]
+	path = src/groundingdino
+	url = https://github.com/IDEA-Research/GroundingDINO.git

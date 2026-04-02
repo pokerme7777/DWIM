@@ -1,0 +1,4 @@
+_target_: src.prompters.RetrieveInContextExamplesByQtypePrompter.build_from_filepaths
+template_path: prompts/2025_01_25_all_tool_GQA_0shot.xml
+in_context_examples_path: in_context_examples/2024-10-04-super-Instruct_fortest_no_ice.yaml
+dataset_records: ${....dataset} 

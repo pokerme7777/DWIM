@@ -1,0 +1,3 @@
+_target_: neurips_prototyping.environment.BarebonesJupyterKernelEnvironment
+gateway_ip_addr: ${...jupyter_kernel_gateway.ip_address}
+gateway_port: ${...jupyter_kernel_gateway.port}

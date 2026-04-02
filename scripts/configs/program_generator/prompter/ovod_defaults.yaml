@@ -1,0 +1,10 @@
+# Identical to retrieve_in_context_examples_by_qtype.yaml, except that it uses the
+# the prompts in which we have fixed incorrect usages of the crop functionality,
+# and it uses the in-context example bank which only has in-context examples for 
+# single question type (default) meaning all questions get the same in-context 
+# examples, directly mimicking the behavior of the original prompter, which was
+# insert_query_here.yaml.
+_target_: src.prompters.RetrieveInContextExamplesByQtypePrompter.build_from_filepaths
+template_path: prompts/2023-10-26-crops-fixed.py
+in_context_examples_path: in_context_examples/2023-10-31-ovod-defaults-only.yaml 
+dataset_records: ${...dataset}

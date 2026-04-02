@@ -1,0 +1,12 @@
+_target_: neurips_prototyping.environment.JupyterVisualProgrammingEnvironment.init_using_raw_module_specs
+gateway_ip_addr: ${...jupyter_kernel_gateway.ip_address}
+gateway_port: ${...jupyter_kernel_gateway.port}
+allowed_names:
+  - ImagePatch
+  - bool_to_yesno
+  - image
+  - select_best_match_patch_by_description
+restricted_names:
+  - get_ipython
+defaults:
+  - module_specs/vqa_llava15

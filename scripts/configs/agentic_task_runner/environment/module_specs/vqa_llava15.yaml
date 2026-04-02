@@ -1,0 +1,19 @@
+# propose by fucai on 2024/08/28
+- name: "find_in_image"
+  lifetime: "detached"
+  num_gpus: 0.08
+  dotpath_to_constructor: "src.object_detection.HfGroundingDino"
+  constructor_params: {}
+  namespace: ?? # This will be automatically set based on the worker_id.
+- name: "simple_query"
+  lifetime: "detached"
+  num_gpus: 0.34
+  dotpath_to_constructor: "src.vqa.LlavaInterpreter"
+  constructor_params: {}
+  namespace: ?? # This will be automatically set based on the worker_id.
+- name: "llm_query"
+  lifetime: "detached"
+  num_gpus: 0
+  dotpath_to_constructor: "src.openai_self_module.ChatGptQuestionAnswer"
+  constructor_params: {}
+  namespace: ?? # This will be automatically set based on the worker_id.

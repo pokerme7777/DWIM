@@ -1,0 +1,4 @@
+calculator:
+  _target_: src.instrumentation.ObjectDetectionMetricsCalculator
+running_formatter:
+  _target_: src.instrumentation.RunningObjectDetectionMetricsFormatter

@@ -1,0 +1,10 @@
+# These are the same as in_context_examples/2023-10-20.yaml, except
+# converted to the new format. I converted these manually by hand with some
+# help from Copilot. There may be mistakes, and I did not fit in all the logic
+# I wanted to.
+default:
+  -
+    dataset: gqa
+    question_id: null
+    text: |
+       

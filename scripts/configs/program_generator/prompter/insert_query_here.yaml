@@ -1,0 +1,2 @@
+_target_: src.prompters.InsertQueryHerePrompter
+template_path: prompts/2023-09-25.py

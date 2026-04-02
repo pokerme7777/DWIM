@@ -1,0 +1,5 @@
+_target_: peft.peft_model.PeftModel.from_pretrained
+model_id: ./cache/0042_instruction_tune_codellama_7b_gqa_programs_peft  
+
+defaults:
+  - model: codellama7b

@@ -24,8 +24,8 @@
     <a href="https://github.com/pokerme7777/DWIM/stargazers">
         <img src="https://img.shields.io/github/stars/pokerme7777/DWIM?style=flat-square">
     </a>
-    <a href="https://arxiv.org/abs/2503.19263">
-        <img src="https://img.shields.io/badge/arXiv-2503.19263-b31b1b.svg?style=flat-square" alt="arXiv Badge"/>
+    <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Ke_DWIM_Towards_Tool-aware_Visual_Reasoning_via_Discrepancy-aware_Workflow_Generation__ICCV_2025_paper.html">
+    <img src="https://img.shields.io/badge/ICCV-2025-blue.svg?style=flat-square">
     </a>
 </div>
 
@@ -36,8 +36,8 @@
 [![DWIM Video](https://img.youtube.com/vi/TJhJTfpAG7g/0.jpg)](https://www.youtube.com/watch?v=TJhJTfpAG7g)
 
 ## 📢 Release Updates
-
-- [2025/07/18] 🔥 The **DWIM** instruction code is now available under the [`scripts`](./scripts) directory.
+- [2026/04/02] 🚀 We release the full **DWIM** codebase, including training, evaluation, and inference pipelines under the [`scripts`](./scripts) directory. A representative prompt example is provided.
+- [2025/07/18] 🔥 The **DWIM** instruction code is now available under the [`demo-scripts`](./demo-scripts) directory.
 - [2025/06/25] 🎉 Our **DWIM** paper has been accepted at **ICCV 2025**.
 
 Due to company policy, we are only able to release the instruction code — including sample prompts and data — for discrepancy-aware workflow generation and the implementation of instruct-masking.
@@ -50,10 +50,12 @@ Visual reasoning (VR), which is crucial in many fields for enabling human-like v
 ## References
 If you find this work useful for your research, please consider citing it.
 ```bibtex
-@article{ke2025dwim,
-  title={DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation \& Instruct-Masking Tuning},
-  author={Ke, Fucai and Leng, Xingjian and Cai, Zhixi and Khan, Zaid and Wang, Weiqing and Haghighi, Pari Delir and Rezatofighi, Hamid and Chandraker, Manmohan and others},
-  journal={arXiv preprint arXiv:2503.19263},
-  year={2025}
+@InProceedings{Ke_2025_ICCV,
+    author    = {Ke, Fucai and G, Vijay Kumar B and Leng, Xingjian and Cai, Zhixi and Khan, Zaid and Wang, Weiqing and Haghighi, Pari Delir and Rezatofighi, Hamid and Chandraker, Manmohan},
+    title     = {DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation \& Instruct-Masking Tuning},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2025},
+    pages     = {3378-3389}
 }
 ```

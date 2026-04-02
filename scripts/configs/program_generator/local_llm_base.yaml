@@ -1,0 +1,21 @@
+_target_: src.program_generators.LocalLLMProgramGenerator
+local_llm: model/codellama7b
+tokenizer:
+  _target_: src.pale_giant_utils.init_llama_tokenizer 
+  pretrained_model_name_or_path: codellama/CodeLlama-7b-instruct-hf
+generate_kwargs:
+  do_sample: true
+  top_p: 0.9
+  top_k: 0
+  temperature: 0.7
+  # This used to be 180, but we changed it
+  # because programs for certain question types
+  # would be cut off too often.
+  max_new_tokens: 320
+  pad_token_id: 2 # This is the llama eos_token_id.
+prompter: insert_query_here
+
+defaults:
+  - _self_
+  - local_llm: model/codellama7b
+  - prompter: insert_query_here 

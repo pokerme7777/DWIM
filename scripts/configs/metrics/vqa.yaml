@@ -1,0 +1,5 @@
+calculator:
+  _target_: src.instrumentation.VqaMetricsCalculator.build_and_set_ks_from_it_per_record
+  iterations_per_record: ${...iterations_per_record}
+running_formatter:
+  _target_: src.instrumentation.VqaRunningMetricsFormatter

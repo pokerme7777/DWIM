@@ -1,0 +1,30 @@
+output_folder: fill_the_path_to_output_folder
+dataset: gqa_train_balanced_subset_10
+restart: false
+metrics: vqa
+iterations_per_record: 1
+experiment_namespace: debug
+caption_first: 0  # new parameter [0,1,2] 0is Flase, 1 captioning first, 1 using preprocessed caption
+instructed_mode: 0 # new parameter [0,1] 0 is Flase, 1 instruction tuning with step no.
+use_refered_answer: 0 # new parameter [0,1] 0 is Flase, 1 use_refered_answer with step no.
+NF_flag: 0 # new parameter [0,1] 0 is Flase, using new visual feedback.
+
+ray:
+  num_gpus: 6
+  num_workers: ${.num_gpus}
+
+
+jupyter_kernel_gateway:
+  ip_address: "fill_the_jupyter_gateway_ip"
+  port: "fill_the_jupyter_gateway_port"
+
+agentic_task_runner:
+  _target_: neurips_prototyping.new_worker.AgenticTaskRunner 
+  max_steps: 10
+
+defaults:
+  - _self_
+  - dataset: gqa_val_subset
+  - metrics: vqa
+  - agentic_task_runner/environment: jupyter_visual_programming
+  - agentic_task_runner/agent: llama31_8b_vllm_react_agent

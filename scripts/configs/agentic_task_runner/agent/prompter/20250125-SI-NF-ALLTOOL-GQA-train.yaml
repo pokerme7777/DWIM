@@ -1,0 +1,4 @@
+_target_: src.prompters.RetrieveInContextExamplesByQtypePrompter.build_from_filepaths
+template_path: prompts/2025_01_25_all_tool_GQA_fortrain.xml
+in_context_examples_path: in_context_examples/2024-10-21-super-Instruct_NF_fortrain.yaml
+dataset_records: ${....dataset} 

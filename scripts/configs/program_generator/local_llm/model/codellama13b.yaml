@@ -1,0 +1,8 @@
+_target_: transformers.LlamaForCausalLM.from_pretrained
+pretrained_model_name_or_path: codellama/CodeLlama-13b-instruct-hf
+low_cpu_mem_usage: true
+device_map: cuda:0
+use_safetensors: true
+torch_dtype: 
+  _target_: src.pale_giant_utils.torch_dtype_from_str 
+  dtype_str: float16

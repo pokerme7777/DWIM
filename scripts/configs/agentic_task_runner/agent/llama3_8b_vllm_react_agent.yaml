@@ -1,0 +1,7 @@
+_target_: neurips_prototyping.local_agent.MistralVllmMReactAgentWithPinnedEngine 
+model: meta-llama/Meta-Llama-3.1-8B-Instruct
+observation_renderer:
+  _target_: neurips_prototyping.observation_renderers.SimpleXmlRenderer
+vllm_engine_kwargs:
+  tensor_parallel_size: 1
+  worker_use_ray: true

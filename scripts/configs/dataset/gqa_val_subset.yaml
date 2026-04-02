@@ -1,0 +1,3 @@
+_target_: src.dataset_io.JsonlDatasetWithImageRoot
+image_root: fill_the_path_to_gqa_images
+jsonl_path: fill_the_path_to_gqa_val_subset_jsonl
